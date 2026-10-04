@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ExpenseFlow - Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">₹</div>
+      <div>
+        <h2>ExpenseFlow</h2>
+        <span>Personal Finance</span>
+      </div>
+    </div>
+
+    <nav>
+      <a class="active" href="#dashboard">▦ <span>Dashboard</span></a>
+      <a href="#transactions">↔ <span>Transactions</span></a>
+      <a href="#budgets">◉ <span>Budgets</span></a>
+      <a href="#reports">▥ <span>Reports</span></a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="tip">
+        <span>💡</span>
+        <b>Money tip</b>
+        <p>Review your expenses every week to stay within budget.</p>
+      </div>
+      <button class="logout">↪ Sign out</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">OVERVIEW</p>
+  
+      </div>
+      <div class="profile">
+        <div class="notification">🔔</div>
+        <div class="avatar">SK</div>
+      </div>
+    </header>
+
+    <section id="dashboard" class="dashboard">
+      <div class="balance-card">
+        <div>
+          <span class="muted">Available Balance</span>
+          <h2>₹48,650.00</h2>
+          <p class="positive">↑ 8.4% <span>from last month</span></p>
+        </div>
+        <div class="wallet">₹</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon income">↗</div>
+        <span class="muted">Total Income</span>
+        <h3>₹72,500</h3>
+        <small class="positive">+5.2% this month</small>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon expense">↘</div>
+        <span class="muted">Total Expenses</span>
+        <h3>₹23,850</h3>
+        <small class="negative">+2.1% this month</small>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon savings">★</div>
+        <span class="muted">Savings</span>
+        <h3>₹48,650</h3>
+        <small class="positive">67% of income</small>
+      </div>
+    </section>
+
+    <section class="grid-layout">
+      <div class="panel chart-panel">
+        <div class="panel-header">
+          <div>
+            <h2>Cash Flow</h2>
+            <p>Income vs expenses</p>
+          </div>
+          <select>
+            <option>Last 6 months</option>
+            <option>This year</option>
+          </select>
+        </div>
+
+        <div class="chart">
+          <div class="y-labels">
+            <span>₹80k</span><span>₹60k</span><span>₹40k</span><span>₹20k</span><span>₹0</span>
+          </div>
+          <div class="bars">
+            <div class="month"><div class="bar income-bar h55"></div><div class="bar expense-bar h25"></div><span>May</span></div>
+            <div class="month"><div class="bar income-bar h70"></div><div class="bar expense-bar h30"></div><span>Jun</span></div>
+            <div class="month"><div class="bar income-bar h62"></div><div class="bar expense-bar h38"></div><span>Jul</span></div>
+            <div class="month"><div class="bar income-bar h82"></div><div class="bar expense-bar h34"></div><span>Aug</span></div>
+            <div class="month"><div class="bar income-bar h75"></div><div class="bar expense-bar h43"></div><span>Sep</span></div>
+            <div class="month"><div class="bar income-bar h90"></div><div class="bar expense-bar h40"></div><span>Oct</span></div>
+          </div>
+        </div>
+
+        <div class="legend">
+          <span><i class="dot income-dot"></i> Income</span>
+          <span><i class="dot expense-dot"></i> Expenses</span>
+        </div>
+      </div>
+
+      <div id="budgets" class="panel budget-panel">
+        <div class="panel-header">
+          <div>
+            <h2>Monthly Budget</h2>
+            <p>₹35,000 limit</p>
+          </div>
+          <span class="budget-percent">68%</span>
+        </div>
+        <div class="progress"><div></div></div>
+        <div class="budget-row"><span>Spent</span><b>₹23,850</b></div>
+        <div class="budget-row"><span>Remaining</span><b class="positive">₹11,150</b></div>
+
+        <div class="category-list">
+          <div class="category"><span class="category-name"><i class="food">🍴</i> Food</span><b>₹7,250</b></div>
+          <div class="category"><span class="category-name"><i class="travel">🚗</i> Travel</span><b>₹5,400</b></div>
+          <div class="category"><span class="category-name"><i class="shopping">🛍️</i> Shopping</span><b>₹4,200</b></div>
+          <div class="category"><span class="category-name"><i class="bills">💡</i> Bills</span><b>₹3,500</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="transactions" class="panel transactions-panel">
+      <div class="panel-header">
+        <div>
+          <h2>Recent Transactions</h2>
+          <p>Your latest income and expenses</p>
+        </div>
+        <button class="add-btn" onclick="addTransaction()">+ Add Transaction</button>
+      </div>
+
+      <div class="transaction-table">
+        <div class="table-head">
+          <span>Transaction</span><span>Category</span><span>Date</span><span>Amount</span>
+        </div>
+
+        <div class="transaction">
+          <div class="transaction-name"><div class="tx-icon salary">↗</div><div><b>Monthly Salary</b><small>Bank transfer</small></div></div>
+          <span class="pill income-pill">Income</span>
+          <span>Oct 01, 2026</span>
+          <strong class="positive">+₹72,500</strong>
+        </div>
+
+        <div class="transaction">
+          <div class="transaction-name"><div class="tx-icon food">🍴</div><div><b>Restaurant</b><small>Lunch with friends</small></div></div>
+          <span class="pill">Food</span>
+          <span>Oct 03, 2026</span>
+          <strong class="negative">−₹850</strong>
+        </div>
+
+        <div class="transaction">
+          <div class="transaction-name"><div class="tx-icon travel">🚗</div><div><b>Fuel</b><small>Vehicle expense</small></div></div>
+          <span class="pill">Travel</span>
+          <span>Oct 03, 2026</span>
+          <strong class="negative">−₹1,200</strong>
+        </div>
+
+        <div class="transaction">
+          <div class="transaction-name"><div class="tx-icon shopping">🛍️</div><div><b>Online Shopping</b><small>Electronics</small></div></div>
+          <span class="pill">Shopping</span>
+          <span>Oct 02, 2026</span>
+          <strong class="negative">−₹3,499</strong>
+        </div>
+
+        <div class="transaction">
+          <div class="transaction-name"><div class="tx-icon bills">💡</div><div><b>Electricity Bill</b><small>Monthly utility</small></div></div>
+          <span class="pill">Bills</span>
+          <span>Oct 01, 2026</span>
+          <strong class="negative">−₹2,150</strong>
+        </div>
+      </div>
+    </section>
+
+    <section id="reports" class="quick-actions">
+      <div>
+        <h2>Take control of your money</h2>
+        <p>Track every rupee, understand your habits and reach your savings goals.</p>
+      </div>
+      <button onclick="downloadReport()">↓ Export Report</button>
+    </section>
+
+    <footer>ExpenseFlow © 2026 · Smart personal expense tracking</footer>
+  </main>
+
+  <script>
+    function addTransaction() {
+      alert("Add Transaction form can be connected to your backend here.");
+    }
+    function downloadReport() {
+      alert("Report export can be connected to CSV/PDF generation here.");
+    }
+  </script>
+</body>
+</html>
